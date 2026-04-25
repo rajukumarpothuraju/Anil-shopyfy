@@ -66,7 +66,7 @@ const Airecommendation = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/ai/recommend",
+        "https://anil-shopyfy-backend.onrender.com/api/ai/recommend",
         {
           message: textToSend,
           userName: userName,

@@ -145,7 +145,7 @@ const Productspage = () => {
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
             {productfilter.map((item) => (
               <div
-                key={item.id}
+                key={item._id}
                 className="group flex flex-col bg-[#111827] border border-slate-800 rounded-[2rem] p-3 hover:border-orange-600/50 transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="relative aspect-square bg-white rounded-[1.5rem] p-6 overflow-hidden">

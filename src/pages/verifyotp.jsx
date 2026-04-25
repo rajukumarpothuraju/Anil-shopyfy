@@ -30,7 +30,7 @@ const Verifyotp = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/verify-otp",
+        "https://anil-shopyfy-backend.onrender.com/api/verify-otp",
         { identifier, otp },
       );
       if (response.status === 200) {
@@ -47,7 +47,10 @@ const Verifyotp = () => {
   const handleResend = async () => {
     setResending(true);
     try {
-      await axios.post("http://localhost:5000/api/resend-otp", { identifier });
+      await axios.post(
+        "https://anil-shopyfy-backend.onrender.com/api/resend-otp",
+        { identifier },
+      );
       setTimer(40);
       alert("New OTP Sent!");
     } catch (error) {

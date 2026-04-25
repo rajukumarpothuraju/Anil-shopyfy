@@ -32,17 +32,19 @@ const Adminpage = () => {
   const fetchData = async () => {
     const config = { headers: { Authorization: `Bearer ${token}` } };
     try {
-      const resP = await axios.get("http://localhost:5000/api/products");
+      const resP = await axios.get(
+        "https://anil-shopyfy-backend.onrender.com/api/products",
+      );
       setProducts(resP.data);
 
       const resU = await axios.get(
-        "http://localhost:5000/api/admin/users",
+        "https://anil-shopyfy-backend.onrender.com/api/admin/users",
         config,
       );
       setUsers(resU.data || []);
 
       const resO = await axios.get(
-        "http://localhost:5000/api/admin/orders",
+        "https://anil-shopyfy-backend.onrender.com/api/admin/orders",
         config,
       );
       setOrders(resO.data || []);
@@ -57,14 +59,14 @@ const Adminpage = () => {
     try {
       if (isEditing) {
         await axios.put(
-          `http://localhost:5000/api/updatedata/${currentId}`,
+          `https://anil-shopyfy-backend.onrender.com/api/updatedata/${currentId}`,
           formData,
           config,
         );
         alert("Product Updated Successfully! ");
       } else {
         await axios.post(
-          "http://localhost:5000/api/addproduct",
+          "https://anil-shopyfy-backend.onrender.com/api/addproduct",
           formData,
           config,
         );
@@ -111,9 +113,12 @@ const Adminpage = () => {
   const handleDeleteUser = async (userId) => {
     if (window.confirm("ఈ యూజర్‌ని పర్మనెంట్‌గా డిలీట్ చేయాలా?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/user/${userId}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        await axios.delete(
+          `https://anil-shopyfy-backend.onrender.com/api/admin/user/${userId}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          },
+        );
         alert("User Removed! ");
         fetchData();
       } catch (err) {
@@ -125,7 +130,7 @@ const Adminpage = () => {
   const handleStatusUpdate = async (orderId, newStatus) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/admin/order-status/${orderId}`,
+        `https://anil-shopyfy-backend.onrender.com/api/admin/order-status/${orderId}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -365,7 +370,7 @@ const Adminpage = () => {
                             if (window.confirm("Remove?"))
                               axios
                                 .delete(
-                                  `http://localhost:5000/api/deleteproduct/${p._id}`,
+                                  `https://anil-shopyfy-backend.onrender.com/api/deleteproduct/${p._id}`,
                                   {
                                     headers: {
                                       Authorization: `Bearer ${token}`,

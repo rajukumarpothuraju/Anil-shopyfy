@@ -53,7 +53,7 @@ const Buynowform = () => {
   const handleCODPayment = async (token) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/order/place",
+        "https://anil-shopyfy-backend.onrender.com/api/order/place",
         {
           ...orderData,
           items: displayItems,
@@ -76,7 +76,7 @@ const Buynowform = () => {
     try {
       // Step 1: Create Razorpay Order in Backend
       const orderRes = await axios.post(
-        "http://localhost:5000/api/payment/order",
+        "https://anil-shopyfy-backend.onrender.com/api/payment/order",
         { amount: totalPrice },
         { headers: { Authorization: `Bearer ${token}` } },
       );
@@ -94,7 +94,7 @@ const Buynowform = () => {
           try {
             // Step 2: Verify Payment
             const verifyRes = await axios.post(
-              "http://localhost:5000/api/payment/verify",
+              "https://anil-shopyfy-backend.onrender.com/api/payment/verify",
               {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
@@ -106,7 +106,7 @@ const Buynowform = () => {
             if (verifyRes.status === 200) {
               // Step 3: Finalize Order
               const finalOrder = await axios.post(
-                "http://localhost:5000/api/order/place",
+                "https://anil-shopyfy-backend.onrender.com/api/order/place",
                 {
                   ...orderData,
                   items: displayItems,

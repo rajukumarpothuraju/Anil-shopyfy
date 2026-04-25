@@ -31,13 +31,13 @@ const Userinfopage = () => {
       setLoading(true);
       try {
         const savedRes = await axios.get(
-          "http://localhost:5000/api/getsaveforlaterproductsfromdatabase",
+          "https://anil-shopyfy-backend.onrender.com/api/getsaveforlaterproductsfromdatabase",
           { headers: { Authorization: `Bearer ${token}` } },
         );
         setSavedItems(savedRes.data);
 
         const orderRes = await axios.get(
-          "http://localhost:5000/api/order/user-orders",
+          "https://anil-shopyfy-backend.onrender.com/api/order/user-orders",
           { headers: { Authorization: `Bearer ${token}` } },
         );
         setOrders(orderRes.data.orders);

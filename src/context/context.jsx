@@ -22,7 +22,9 @@ const Context = ({ children }) => {
   const apicalling = useCallback(async () => {
     setloading(true);
     try {
-      const res = await axios.get("http://localhost:5000/api/home");
+      const res = await axios.get(
+        "https://anil-shopyfy-backend.onrender.com/api/home",
+      );
       sethomedata(res.data);
     } catch (err) {
       console.log("Home data error:", err);
@@ -34,7 +36,9 @@ const Context = ({ children }) => {
   // 2. Products Data API
   const apicalling2 = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get(
+        "https://anil-shopyfy-backend.onrender.com/api/products",
+      );
       setproductsdata(res.data);
     } catch (err) {
       console.log("Products load error:", err);
@@ -49,7 +53,10 @@ const Context = ({ children }) => {
     }
 
     try {
-      const res = await axios.get("http://localhost:5000/apicart/get", headers);
+      const res = await axios.get(
+        "https://anil-shopyfy-backend.onrender.com/apicart/get",
+        headers,
+      );
 
       setcart(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
@@ -97,7 +104,7 @@ const Context = ({ children }) => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/apicart/add",
+          "https://anil-shopyfy-backend.onrender.com/apicart/add",
           payload,
           headers,
         );
@@ -122,7 +129,7 @@ const Context = ({ children }) => {
 
       try {
         const res = await axios.delete(
-          `http://localhost:5000/apicart/delete/${cartObjectId}`,
+          `https://anil-shopyfy-backend.onrender.com/apicart/delete/${cartObjectId}`,
           headers,
         );
         if (res.status === 200) {
@@ -146,7 +153,7 @@ const Context = ({ children }) => {
       }
       try {
         const response = await axios.patch(
-          `http://localhost:5000/api/saveforlaterproductstodatabase/${id}`,
+          `https://anil-shopyfy-backend.onrender.com/api/saveforlaterproductstodatabase/${id}`,
           {},
           headers,
         );
@@ -169,7 +176,7 @@ const Context = ({ children }) => {
       if (!headers) return;
       try {
         await axios.patch(
-          `http://localhost:5000/api/removesaveditems/${id}`,
+          `https://anil-shopyfy-backend.onrender.com/api/removesaveditems/${id}`,
           {},
           headers,
         );
@@ -186,7 +193,7 @@ const Context = ({ children }) => {
   const fetchrelatedproducts = useCallback(async (category, id) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/relatedproducts/${category}/${id}`,
+        `https://anil-shopyfy-backend.onrender.com/api/relatedproducts/${category}/${id}`,
       );
       getrelatedproducts(res.data);
     } catch (error) {

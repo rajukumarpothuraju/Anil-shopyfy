@@ -18,7 +18,7 @@ const Eachproductrouting = () => {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/getsingleproductbyid/${id}`,
+          `https://anil-shopyfy-backend.onrender.com/api/getsingleproductbyid/${id}`,
         );
         setProduct(res.data);
         if (res.data) {

@@ -26,7 +26,7 @@ const SignupForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/signup",
+        "https://anil-shopyfy-backend.onrender.com/api/signup",
         formData,
       );
 

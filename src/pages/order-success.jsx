@@ -30,7 +30,7 @@ const Ordersucess = () => {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `Bearer ${token}` };
       const resHistory = await axios.get(
-        "http://localhost:5000/api/order/user-orders",
+        "https://anil-shopyfy-backend.onrender.com/api/order/user-orders",
         { headers },
       );
       const ordersList = resHistory.data.orders || [];
@@ -38,7 +38,7 @@ const Ordersucess = () => {
 
       if (id) {
         const resCurrent = await axios.get(
-          `http://localhost:5000/api/order/get/${id}`,
+          `https://anil-shopyfy-backend.onrender.com/api/order/get/${id}`,
           { headers },
         );
         setCurrentOrder(resCurrent.data.order);
@@ -62,9 +62,12 @@ const Ordersucess = () => {
     if (!window.confirm("ఈ ఆర్డర్ హిస్టరీని డిలీట్ చేయాలా?")) return;
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/order/delete/${orderId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://anil-shopyfy-backend.onrender.com/api/order/delete/${orderId}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
       const updatedOrders = allOrders.filter((ord) => ord._id !== orderId);
       setAllOrders(updatedOrders);
       if (currentOrder && orderId === currentOrder._id) {
