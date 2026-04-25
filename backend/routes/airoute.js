@@ -1,5 +1,5 @@
 import express from "express";
-import Product from "../models/Productmodel.js";
+import Product from "../models/productmodel.js";
 
 const router = express.Router();
 const sessions = new Map();
