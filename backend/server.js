@@ -8,7 +8,7 @@ import homeroutes from "./routes/homeroutes.js";
 import productpageroutes from "./routes/productpageroutes.js";
 import addtocartroute from "./routes/addtocartroute.js";
 import userauthroutes from "./routes/userauthroutes.js";
-import orderRoutes from "./routes/orderRoutes.js";
+import orderRoutes from "./routes/orderroutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import aiRoute from "./routes/airoute.js";
 const port = 5000;
