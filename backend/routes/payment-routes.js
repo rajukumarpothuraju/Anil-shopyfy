@@ -2,7 +2,7 @@ import express from "express";
 import {
   createOrder,
   verifyPayment,
-} from "../controllers/paymentController.js";
+} from "../controllers/paymentcontroller.js";
 import { verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
