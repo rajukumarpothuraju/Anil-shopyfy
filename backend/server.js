@@ -2,14 +2,14 @@ import dotEnv from "dotenv";
 dotEnv.config();
 import express from "express";
 import cors from "cors";
-
+// deploy fix
 import mongoose from "mongoose";
 import homeroutes from "./routes/homeroutes.js";
 import productpageroutes from "./routes/productpageroutes.js";
 import addtocartroute from "./routes/addtocartroute.js";
 import userauthroutes from "./routes/userauthroutes.js";
 import orderRoutes from "./routes/orderroutes.js";
-import paymentRoutes from "./routes/paymentRoutes.js";
+import paymentRoutes from "./routes/paymentroutes.js";
 import aiRoute from "./routes/airoute.js";
 const port = 5000;
 const app = express();
