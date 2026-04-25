@@ -4,7 +4,7 @@ import {
   getOrderById,
   getUserOrders,
   deleteOrder,
-} from "../controllers/orderController.js";
+} from "../controllers/ordercontroller.js";
 import { verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
